@@ -1,8 +1,11 @@
 import com.ecwid.consul.v1.ConsulClient;
 import com.ecwid.consul.v1.agent.model.NewService;
+import com.ncirl.smartwarehouse.RequestSource;
+import com.ncirl.smartwarehouse.ThermostatReadingInformation;
 import com.ncirl.smartwarehouse.ThermostatServiceGrpc;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.stub.StreamObserver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -107,12 +110,25 @@ public class ThermostatServer {
 
         public ThermostatServiceImpl() {
             thermostatReadings = new ArrayList<ThermostatReading>();
-            thermostatReadings.add(new ThermostatReading(21.1));
-            thermostatReadings.add(new ThermostatReading(21.0));
+            thermostatReadings.add(new ThermostatReading(6.0));
+            thermostatReadings.add(new ThermostatReading(5.0));
+            thermostatReadings.add(new ThermostatReading(4.8));
+            thermostatReadings.add(new ThermostatReading(4.9));
+            thermostatReadings.add(new ThermostatReading(4.4));
+            thermostatReadings.add(new ThermostatReading(4.2));
+            thermostatReadings.add(new ThermostatReading(4.3));
+            thermostatReadings.add(new ThermostatReading(4.0));
+            thermostatReadings.add(new ThermostatReading(4.1));
+            thermostatReadings.add(new ThermostatReading(4.0));
         }
+       /* @Override
+        public void getCurrentThermostatReading(RequestSource request, StreamObserver<ThermostatReadingInformation> responseObserver) {
+            // Get the latest thermostat reading from the list
+            ThermostatReadingInformation latestReading = thermostatReadings.get(thermostatReadings.size() - 1);
+            // Send the latest reading back to the client
+            responseObserver.onNext(latestReading);
+            responseObserver.onCompleted();
+        }
+*/
 
-//        @Override
-//        public void getCurrentThermostatReading()
-    }
-}
 

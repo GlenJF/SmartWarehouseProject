@@ -10,7 +10,7 @@ service ThermostatService {
   // Unary RPC
   rpc getCurrentThermostatReading(RequestSource) returns (ThermostatReadingInformation);
 
-  // Server-side streaming RPC for health check
+  // Server-side streaming RPC
   rpc streamThermostatReadings(RequestSource) returns (stream ThermostatReadingInformation);
 }
 

@@ -155,6 +155,8 @@ public final class ThermostatServiceGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return ThermostatServiceGrpc.bindService(this);
     }
+
+      public abstract void getCurrentThermostatReading();
   }
 
   /**
