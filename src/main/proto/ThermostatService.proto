@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.ncirl.smartwarehouse;
+
+option java_multiple_files = true;
+option java_package = "com.ncirl.smartwarehouse";
+option java_outer_classname = "ThermostatServiceProto";
+
+service ThermostatService {
+  // Unary RPC
+  rpc getCurrentThermostatReading(RequestSource) returns (ThermostatReadingInformation);
+
+  // Server-side streaming RPC for health check
+  rpc streamThermostatReadings(RequestSource) returns (stream ThermostatReadingInformation);
+}
+
+message RequestSource {
+  string request = 1;
+}
+
+message ThermostatReadingInformation {
+  string temperature = 1;
+}
+
