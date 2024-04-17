@@ -105,7 +105,7 @@ public class ThermostatServer {
     static class ThermostatServiceImpl extends ThermostatServiceGrpc.ThermostatServiceImplBase {
         private List<ThermostatReading> thermostatReadings;
         private int currentIndex = 0;
-
+//jijijij
         public ThermostatServiceImpl() {
             thermostatReadings = new ArrayList<ThermostatReading>();
             thermostatReadings.add(new ThermostatReading(6.0));
@@ -136,7 +136,7 @@ public class ThermostatServer {
                         responseObserver.onNext(thermostatReadingInformation);
 
                         // Sleep for 5 seconds
-                        Thread.sleep(5000);
+                        Thread.sleep(15000);
                     }
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();

@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="64bda5e2-e78a-4a3c-8406-a526b3b38a05" name="Changes" comment="new commits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ThermostatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ThermostatServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +33,7 @@
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
         <option name="accountId" value="3f2e40b9-9329-454a-80d4-74c68e2aadda" />
-        <option name="url" value="git@github.com:GlenJF/smartwarehouse.git" />
+        <option name="url" value="https://github.com/GlenJF/SmartWarehouseProject.git" />
       </UrlAndAccount>
     </option>
   </component>
@@ -83,7 +84,7 @@
       <updated>1713342505306</updated>
       <workItem from="1713342506622" duration="7758000" />
       <workItem from="1713359213116" duration="18000" />
-      <workItem from="1713359262224" duration="9875000" />
+      <workItem from="1713359262224" duration="12879000" />
     </task>
     <task id="LOCAL-00001" summary="new commits">
       <option name="closed" value="true" />
@@ -101,7 +102,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713372809894</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="new commits">
+      <option name="closed" value="true" />
+      <created>1713372861246</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713372861246</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
