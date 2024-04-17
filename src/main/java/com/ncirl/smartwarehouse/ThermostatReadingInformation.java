@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ThermostatReadingInformation() {
-    temperature_ = "";
+    temperature_ = 0D;
   }
 
   @java.lang.Override
@@ -43,10 +43,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 9: {
 
-            temperature_ = s;
+            temperature_ = input.readDouble();
             break;
           }
           default: {
@@ -82,37 +81,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEMPERATURE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object temperature_;
+  private double temperature_;
   /**
-   * <code>string temperature = 1;</code>
+   * <code>double temperature = 1;</code>
    */
-  public java.lang.String getTemperature() {
-    java.lang.Object ref = temperature_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      temperature_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string temperature = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getTemperatureBytes() {
-    java.lang.Object ref = temperature_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      temperature_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public double getTemperature() {
+    return temperature_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -129,8 +103,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTemperatureBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, temperature_);
+    if (temperature_ != 0D) {
+      output.writeDouble(1, temperature_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,8 +115,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTemperatureBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, temperature_);
+    if (temperature_ != 0D) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(1, temperature_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -160,8 +135,10 @@ private static final long serialVersionUID = 0L;
     com.ncirl.smartwarehouse.ThermostatReadingInformation other = (com.ncirl.smartwarehouse.ThermostatReadingInformation) obj;
 
     boolean result = true;
-    result = result && getTemperature()
-        .equals(other.getTemperature());
+    result = result && (
+        java.lang.Double.doubleToLongBits(getTemperature())
+        == java.lang.Double.doubleToLongBits(
+            other.getTemperature()));
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -174,7 +151,8 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + TEMPERATURE_FIELD_NUMBER;
-    hash = (53 * hash) + getTemperature().hashCode();
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getTemperature()));
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -308,7 +286,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      temperature_ = "";
+      temperature_ = 0D;
 
       return this;
     }
@@ -385,9 +363,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.ncirl.smartwarehouse.ThermostatReadingInformation other) {
       if (other == com.ncirl.smartwarehouse.ThermostatReadingInformation.getDefaultInstance()) return this;
-      if (!other.getTemperature().isEmpty()) {
-        temperature_ = other.temperature_;
-        onChanged();
+      if (other.getTemperature() != 0D) {
+        setTemperature(other.getTemperature());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -418,71 +395,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object temperature_ = "";
+    private double temperature_ ;
     /**
-     * <code>string temperature = 1;</code>
+     * <code>double temperature = 1;</code>
      */
-    public java.lang.String getTemperature() {
-      java.lang.Object ref = temperature_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        temperature_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public double getTemperature() {
+      return temperature_;
     }
     /**
-     * <code>string temperature = 1;</code>
+     * <code>double temperature = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getTemperatureBytes() {
-      java.lang.Object ref = temperature_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        temperature_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string temperature = 1;</code>
-     */
-    public Builder setTemperature(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setTemperature(double value) {
+      
       temperature_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string temperature = 1;</code>
+     * <code>double temperature = 1;</code>
      */
     public Builder clearTemperature() {
       
-      temperature_ = getDefaultInstance().getTemperature();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string temperature = 1;</code>
-     */
-    public Builder setTemperatureBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      temperature_ = value;
+      temperature_ = 0D;
       onChanged();
       return this;
     }

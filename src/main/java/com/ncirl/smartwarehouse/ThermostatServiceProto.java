@@ -36,7 +36,7 @@ public final class ThermostatServiceProto {
       "\n\027ThermostatService.proto\022\030com.ncirl.sma" +
       "rtwarehouse\" \n\rRequestSource\022\017\n\007request\030" +
       "\001 \001(\t\"3\n\034ThermostatReadingInformation\022\023\n" +
-      "\013temperature\030\001 \001(\t2\222\002\n\021ThermostatService" +
+      "\013temperature\030\001 \001(\0012\222\002\n\021ThermostatService" +
       "\022~\n\033getCurrentThermostatReading\022\'.com.nc" +
       "irl.smartwarehouse.RequestSource\0326.com.n" +
       "cirl.smartwarehouse.ThermostatReadingInf" +

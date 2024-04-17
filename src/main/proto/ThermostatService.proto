@@ -19,6 +19,6 @@ message RequestSource {
 }
 
 message ThermostatReadingInformation {
-  string temperature = 1;
+  double temperature = 1;
 }
 

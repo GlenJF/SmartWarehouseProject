@@ -137,7 +137,7 @@ public final class ThermostatServiceGrpc {
 
     /**
      * <pre>
-     * Server-side streaming RPC for health check
+     * Server-side streaming RPC
      * </pre>
      */
     default void streamThermostatReadings(com.ncirl.smartwarehouse.RequestSource request,
@@ -155,8 +155,6 @@ public final class ThermostatServiceGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return ThermostatServiceGrpc.bindService(this);
     }
-
-      public abstract void getCurrentThermostatReading();
   }
 
   /**
@@ -188,7 +186,7 @@ public final class ThermostatServiceGrpc {
 
     /**
      * <pre>
-     * Server-side streaming RPC for health check
+     * Server-side streaming RPC
      * </pre>
      */
     public void streamThermostatReadings(com.ncirl.smartwarehouse.RequestSource request,
@@ -226,7 +224,7 @@ public final class ThermostatServiceGrpc {
 
     /**
      * <pre>
-     * Server-side streaming RPC for health check
+     * Server-side streaming RPC
      * </pre>
      */
     public java.util.Iterator<com.ncirl.smartwarehouse.ThermostatReadingInformation> streamThermostatReadings(

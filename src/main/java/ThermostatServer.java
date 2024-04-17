@@ -1,8 +1,6 @@
 import com.ecwid.consul.v1.ConsulClient;
 import com.ecwid.consul.v1.agent.model.NewService;
-import com.ncirl.smartwarehouse.RequestSource;
-import com.ncirl.smartwarehouse.ThermostatReadingInformation;
-import com.ncirl.smartwarehouse.ThermostatServiceGrpc;
+import com.ncirl.smartwarehouse.*;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -121,14 +119,32 @@ public class ThermostatServer {
             thermostatReadings.add(new ThermostatReading(4.1));
             thermostatReadings.add(new ThermostatReading(4.0));
         }
-       /* @Override
+
+        @Override
         public void getCurrentThermostatReading(RequestSource request, StreamObserver<ThermostatReadingInformation> responseObserver) {
-            // Get the latest thermostat reading from the list
-            ThermostatReadingInformation latestReading = thermostatReadings.get(thermostatReadings.size() - 1);
-            // Send the latest reading back to the client
-            responseObserver.onNext(latestReading);
-            responseObserver.onCompleted();
+            super.getCurrentThermostatReading(request, responseObserver);
         }
-*/
+
+        @Override
+        public void streamThermostatReadings(RequestSource request, StreamObserver<ThermostatReadingInformation> responseObserver) {
+
+                try {
+                    // Loop through the list of thermostat readings
+                    for (ThermostatReading reading : thermostatReadings) {
+                        // Send the reading to the client
+                        ThermostatReadingInformation thermostatReadingInformation = ThermostatReadingInformation.newBuilder().setTemperature(reading.getTemperature()).build();
+                        responseObserver.onNext(thermostatReadingInformation);
+
+                        // Sleep for 5 seconds
+                        Thread.sleep(5000);
+                    }
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                } finally {
+                    // Complete the RPC call
+                    responseObserver.onCompleted();
+                }
+            };
 
 
+    }}
