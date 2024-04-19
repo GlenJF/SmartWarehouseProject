@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.ncirl.smartwarehouse;
+
+option java_multiple_files = true;
+option java_package = "com.ncirl.smartwarehouse";
+option java_outer_classname = "LightSensorServiceProto";
+
+service LightSensorService {
+  rpc AdjustBrightness(stream LightRequest) returns (stream LightResponse) {}
+}
+message LightRequest {
+  int32 luminousIntensity = 1;}
+
+message LightResponse {
+  bool increaseBrightness = 1;
+  bool decreaseBrightness = 2;
+}
