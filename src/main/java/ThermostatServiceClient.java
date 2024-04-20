@@ -1,5 +1,4 @@
 import com.ecwid.consul.v1.ConsulClient;
-import com.ecwid.consul.v1.Response;
 import com.ecwid.consul.v1.health.model.HealthService;
 import com.ncirl.smartwarehouse.RequestSource;
 import com.ncirl.smartwarehouse.ThermostatReadingInformation;
@@ -43,11 +42,11 @@ public class ThermostatServiceClient {
 
     public void getCurrentThermostatReading() {
         RequestSource request = RequestSource.newBuilder().setRequest("current").build();
-        stub.getCurrentThermostatReading(request, new ResponseObserver<ThermostatReadingInformation>() {
-          /*  @Override
+        stub.getCurrentThermostatReading(request, new StreamObserver<ThermostatReadingInformation>() {
+            @Override
             public void onNext(ThermostatReadingInformation response) {
                 System.out.println("Current Thermostat Reading: " + response.getTemperature());
-            }*/
+            }
 
             @Override
             public void onError(Throwable t) {
