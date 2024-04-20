@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64bda5e2-e78a-4a3c-8406-a526b3b38a05" name="Changes" comment="new commits">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/proto/LightSensorService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LightSensorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LightSensorServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ThermostatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ThermostatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/LightSensor.proto" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,17 +56,19 @@
     "Application.LightSensorServer.executor": "Run",
     "Application.MotionSensorServer.executor": "Run",
     "Application.ThermostatServer.executor": "Run",
+    "Application.ThermostatServiceClient.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/gRPC req files/JavaFXExample/JavaFXExample",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
@@ -87,6 +88,7 @@
     <attachedChunks>
       <set>
         <option value="jdk-17.0.9-corretto-17.0.9-4caba194b151-107bc6b7" />
+        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
       </set>
     </attachedChunks>
   </component>
@@ -100,7 +102,7 @@
       <updated>1713342505306</updated>
       <workItem from="1713342506622" duration="7758000" />
       <workItem from="1713359213116" duration="18000" />
-      <workItem from="1713359262224" duration="43904000" />
+      <workItem from="1713359262224" duration="55457000" />
     </task>
     <task id="LOCAL-00001" summary="new commits">
       <option name="closed" value="true" />

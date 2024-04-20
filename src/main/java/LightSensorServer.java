@@ -1,4 +1,4 @@
-import com.ecwid.consul.v1.ConsulClient;
+/*import com.ecwid.consul.v1.ConsulClient;
 import com.ecwid.consul.v1.agent.model.NewService;
 
 import com.ncirl.smartwarehouse.LightRequest;
@@ -19,7 +19,7 @@ public class LightSensorServer {
     private Server server;
 
     private void start() throws IOException {
-        /* The port on which the server should run */
+        /* The port on which the server should run
         int port = 50053;
         server = ServerBuilder.forPort(port)
                 .addService(new LightSensorServiceImpl())
@@ -122,7 +122,8 @@ public class LightSensorServer {
                 public void onCompleted() {
 
                 }
-            }
-        }
+
+
     }
-}
+
+*/

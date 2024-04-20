@@ -122,7 +122,13 @@ public class ThermostatServer {
 
         @Override
         public void getCurrentThermostatReading(RequestSource request, StreamObserver<ThermostatReadingInformation> responseObserver) {
-            super.getCurrentThermostatReading(request, responseObserver);
+        double temperature=299;
+
+        ThermostatReadingInformation reading = ThermostatReadingInformation.newBuilder()
+                .setTemperature(temperature)
+                .build();
+        responseObserver.onNext(reading);
+        responseObserver.onCompleted();
         }
 
         @Override
