@@ -1,4 +1,4 @@
-/*import com.ecwid.consul.v1.ConsulClient;
+import com.ecwid.consul.v1.ConsulClient;
 import com.ecwid.consul.v1.agent.model.NewService;
 
 import com.ncirl.smartwarehouse.LightRequest;
@@ -19,23 +19,50 @@ public class LightSensorServer {
     private Server server;
 
     private void start() throws IOException {
-        /* The port on which the server should run
-        int port = 50053;
+        int port = 5005;
         server = ServerBuilder.forPort(port)
                 .addService(new LightSensorServiceImpl())
                 .build()
                 .start();
-        System.out.println("Server started, listening on " + port);
 
-        // Register server to Consul
         registerToConsul();
 
-        // Add shutdown hook
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.err.println("*** shutting down gRPC server since JVM is shutting down");
-            LightSensorServer.this.stop();
-            System.err.println("*** server shut down");
+            server.shutdown();
         }));
+    }
+
+    private void registerToConsul() {
+        Properties props = new Properties();
+        try (FileInputStream fis = new FileInputStream("src/main/resources/consul.properties")) {
+            props.load(fis);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        String consulHost = props.getProperty("consul.host");
+        int consulPort = Integer.parseInt(props.getProperty("consul.port"));
+
+        String serviceName = props.getProperty("lightsensor.service.name");
+        int servicePort = Integer.parseInt(props.getProperty("lightsensor.service.port"));
+
+        String hostAddress;
+        try {
+            hostAddress = InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        ConsulClient consulClient = new ConsulClient(consulHost, consulPort);
+
+        NewService newService = new NewService();
+        newService.setName(serviceName);
+        newService.setPort(servicePort);
+        newService.setAddress(hostAddress);
+
+        consulClient.agentServiceRegister(newService);
     }
 
     private void stop() {
@@ -50,80 +77,46 @@ public class LightSensorServer {
         }
     }
 
-    private void registerToConsul() {
-        System.out.println("Registering server to Consul...");
-
-        // Load Consul configuration from consul.properties file
-        Properties props = new Properties();
-        try (FileInputStream fis = new FileInputStream("src/main/resources/lightsensor.properties")) {
-            props.load(fis);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return;
-        }
-
-        // Extract Consul configuration properties
-        String consulHost = props.getProperty("consul.host");
-        int consulPort = Integer.parseInt(props.getProperty("consul.port"));
-
-        String serviceName = props.getProperty("lightsensor.service.name");
-        int servicePort = Integer.parseInt(props.getProperty("lightsensor.service.port"));
-        String healthCheckInterval = props.getProperty("lightsensor.service.healthCheckInterval");
-
-        // Get host address
-        String hostAddress;
-        try {
-            hostAddress = InetAddress.getLocalHost().getHostAddress();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-            return;
-        }
-
-        // Create a Consul client
-        ConsulClient consulClient = new ConsulClient(consulHost, consulPort);
-
-        // Define service details
-        NewService newService = new NewService();
-        newService.setName(serviceName);
-        newService.setPort(servicePort);
-        newService.setAddress(hostAddress); // Set host address
-
-        // Register service with Consul
-        consulClient.agentServiceRegister(newService);
-
-        // Print registration success message
-        System.out.println("Server registered to Consul successfully. Host: " + hostAddress);
-    }
-
     public static void main(String[] args) throws IOException, InterruptedException {
         final LightSensorServer server = new LightSensorServer();
         server.start();
         server.blockUntilShutdown();
     }
 
-    // Static inner class
     static class LightSensorServiceImpl extends LightSensorServiceGrpc.LightSensorServiceImplBase {
-
         @Override
-        public StreamObserver<LightRequest> adjustBrightness(StreamObserver<LightResponse> responseObserver) {
-            // put in your code here to make the grpc request and handle the response
+        public StreamObserver<LightRequest> adjustBrightness(final StreamObserver<LightResponse> responseObserver) {
             return new StreamObserver<LightRequest>() {
                 @Override
-                public void onNext(LightRequest lightRequest) {
+                public void onNext(LightRequest request) {
+                    int luminousIntensity = request.getLuminousIntensity();
 
+                    boolean increaseBrightness = false;
+                    boolean decreaseBrightness = false;
+
+                    if (luminousIntensity > 50) {
+                        increaseBrightness = true;
+                    } else if (luminousIntensity < 20) {
+                        decreaseBrightness = true;
+                    }
+
+                    LightResponse response = LightResponse.newBuilder()
+                            .setIncreaseBrightness(increaseBrightness)
+                            .setDecreaseBrightness(decreaseBrightness)
+                            .build();
+                    responseObserver.onNext(response);
                 }
 
                 @Override
-                public void onError(Throwable throwable) {
-
+                public void onError(Throwable t) {
+                    System.err.println("Error from client: " + t.getMessage());
                 }
 
                 @Override
                 public void onCompleted() {
-
+                    responseObserver.onCompleted();
                 }
-
-
+            };
+        }
     }
-
-*/
+}
