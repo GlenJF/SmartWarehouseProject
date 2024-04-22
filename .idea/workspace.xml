@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64bda5e2-e78a-4a3c-8406-a526b3b38a05" name="Changes" comment="new commits">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LightSensorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LightSensorServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MotionSensorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MotionSensorClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MotionSensorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MotionSensorServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ThermostatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ThermostatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ncirl/smartwarehouse/MotionSensorServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ncirl/smartwarehouse/MotionSensorServiceGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/MotionSensorService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/MotionSensorService.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,12 +27,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "GlenJF"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GlenJF&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -39,9 +41,9 @@
       </UrlAndAccount>
     </option>
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -54,6 +56,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.LightSensorServer.executor": "Run",
+    "Application.MotionSensorClient.executor": "Run",
     "Application.MotionSensorServer.executor": "Run",
     "Application.ThermostatServer.executor": "Run",
     "Application.ThermostatServiceClient.executor": "Run",
@@ -62,7 +65,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/gRPC req files/JavaFXExample/JavaFXExample",
+    "last_opened_file_path": "C:/code/SmartWarehouseProject",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,6 +86,31 @@
       <recent name="C:\code\SmartWarehouseProject\src\main" />
       <recent name="C:\code\SmartWarehouseProject\src" />
     </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MotionSensorClient">
+    <configuration name="MotionSensorClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MotionSensorClient" />
+      <module name="SmartWarehouse" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MotionSensorServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MotionSensorServer" />
+      <module name="SmartWarehouse" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MotionSensorClient" />
+        <item itemvalue="Application.MotionSensorServer" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -102,7 +130,8 @@
       <updated>1713342505306</updated>
       <workItem from="1713342506622" duration="7758000" />
       <workItem from="1713359213116" duration="18000" />
-      <workItem from="1713359262224" duration="55457000" />
+      <workItem from="1713359262224" duration="71837000" />
+      <workItem from="1713797029270" duration="8466000" />
     </task>
     <task id="LOCAL-00001" summary="new commits">
       <option name="closed" value="true" />

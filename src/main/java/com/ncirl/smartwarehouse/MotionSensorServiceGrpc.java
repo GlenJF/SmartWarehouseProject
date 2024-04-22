@@ -1,7 +1,5 @@
 package com.ncirl.smartwarehouse;
 
-import io.grpc.stub.StreamObserver;
-
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
@@ -98,7 +96,7 @@ public final class MotionSensorServiceGrpc {
 
     /**
      * <pre>
-     * Server-side streaming RPC to receive motion detection updates
+     * Client-side streaming RPC to receive motion detection updates
      * </pre>
      */
     default io.grpc.stub.StreamObserver<com.ncirl.smartwarehouse.DetectMotionStatusRequest> detectMotion(
@@ -116,8 +114,6 @@ public final class MotionSensorServiceGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return MotionSensorServiceGrpc.bindService(this);
     }
-
-      public abstract void detectMotion(DetectMotionStatusRequest request, StreamObserver<DetectMotionResponse> responseObserver);
   }
 
   /**
@@ -138,7 +134,7 @@ public final class MotionSensorServiceGrpc {
 
     /**
      * <pre>
-     * Server-side streaming RPC to receive motion detection updates
+     * Client-side streaming RPC to receive motion detection updates
      * </pre>
      */
     public io.grpc.stub.StreamObserver<com.ncirl.smartwarehouse.DetectMotionStatusRequest> detectMotion(

@@ -102,7 +102,7 @@ public class ThermostatServer {
         server.blockUntilShutdown();
     }
 
-    static class ThermostatServiceImpl extends ThermostatServiceGrpc.ThermostatServiceImplBase {
+    public class ThermostatServiceImpl extends ThermostatServiceGrpc.ThermostatServiceImplBase {
         private List<ThermostatReading> thermostatReadings;
         private int currentIndex = 0;
 

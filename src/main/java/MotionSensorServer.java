@@ -92,40 +92,37 @@ public class MotionSensorServer {
         System.out.println("Server registered to Consul successfully. Host: " + hostAddress);
     }
 
-
     public static void main(String[] args) throws IOException, InterruptedException {
         final MotionSensorServer server = new MotionSensorServer();
         server.start();
         server.blockUntilShutdown();
     }
 
-    static class MotionSensorServiceImpl extends MotionSensorServiceGrpc.MotionSensorServiceImplBase {
+    private static class MotionSensorServiceImpl extends MotionSensorServiceGrpc.MotionSensorServiceImplBase{
+
         @Override
-        public void detectMotion(DetectMotionStatusRequest request, StreamObserver<DetectMotionResponse> responseObserver) {
-            // Retrieve motion detection status from the request
-            boolean isMotionDetected = request.getIsMotionDetected();
+        public StreamObserver<DetectMotionStatusRequest> detectMotion(StreamObserver<DetectMotionResponse> responseObserver) {
+            return new StreamObserver<DetectMotionStatusRequest>() {
+                StringBuilder status = new StringBuilder();
 
-            // Update the motion detection status based on the request
+                @Override
+                public void onNext(DetectMotionStatusRequest request) {
+                    // Aggregate all the motion status received from the client
+                    status.append(request.getIsMotionDetected() ? "Motion detected, " : "No motion detected, ");
+                }
 
+                @Override
+                public void onError(Throwable t) {
+                    System.err.println("Error in receiving motion detection status: " + t.getMessage());
+                }
 
-            // Build the response message
-            String message = isMotionDetected ? "Motion detected!" : "No motion detected.";
-            DetectMotionResponse response = DetectMotionResponse.newBuilder()
-                    .setMessage(message)
-                    .build();
-
-            // Send the response back to the client
-            responseObserver.onNext(response);
-            responseObserver.onCompleted();
+                @Override
+                public void onCompleted() {
+                    // After receiving all messages from the client, send a single response
+                    responseObserver.onNext(DetectMotionResponse.newBuilder().setMessage(status.toString()).build());
+                    responseObserver.onCompleted();
+                }
+            };
         }
     }
-
-        }
-
-
-
-
-   
-
-
-
+}

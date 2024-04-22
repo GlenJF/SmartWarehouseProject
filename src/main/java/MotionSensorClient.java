@@ -58,7 +58,9 @@ import java.util.concurrent.TimeUnit;
             // Simulate motion detection
             try {
                 while (true) {
-                    boolean isMotionDetected = Math.random() < 0.5;
+                    boolean isMotionDetected;
+                    if (Math.random() < 0.5) isMotionDetected = true;
+                    else isMotionDetected = false;
                     DetectMotionStatusRequest request = DetectMotionStatusRequest.newBuilder()
                             .setIsMotionDetected(isMotionDetected)
                             .build();
@@ -75,7 +77,7 @@ import java.util.concurrent.TimeUnit;
         public static void main(String[] args) {
             String consulHost = "localhost"; // Consul host
             int consulPort = 8500; // Consul port
-            String consulServiceName = "motion-sensor-service";
+            String consulServiceName = "motionsensor-service";
 
             MotionSensorClient client = new MotionSensorClient(consulHost, consulPort, consulServiceName);
             try {
