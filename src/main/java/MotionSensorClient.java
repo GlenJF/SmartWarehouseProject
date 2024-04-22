@@ -55,10 +55,10 @@ import java.util.concurrent.TimeUnit;
                 }
             });
 
-
+            // Simulate motion detection
             try {
                 while (true) {
-                    boolean isMotionDetected = Math.random() < 0.5; 
+                    boolean isMotionDetected = Math.random() < 0.5;
                     DetectMotionStatusRequest request = DetectMotionStatusRequest.newBuilder()
                             .setIsMotionDetected(isMotionDetected)
                             .build();
@@ -72,7 +72,24 @@ import java.util.concurrent.TimeUnit;
             requestObserver.onCompleted();
         }
 
+        public static void main(String[] args) {
+            String consulHost = "localhost"; // Consul host
+            int consulPort = 8500; // Consul port
+            String consulServiceName = "motion-sensor-service";
 
+            MotionSensorClient client = new MotionSensorClient(consulHost, consulPort, consulServiceName);
+            try {
+                // Detect motion
+                client.detectMotion();
+
+                // Wait for user input to exit
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Press any key to exit...");
+                scanner.nextLine();
+            } finally {
+                client.shutdown();
+            }
+        }
 
         public void shutdown() {
             try {
