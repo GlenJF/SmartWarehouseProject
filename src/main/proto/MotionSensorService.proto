@@ -7,7 +7,7 @@ option java_package = "com.ncirl.smartwarehouse";
 option java_outer_classname = "MotionSensorServiceProto";
 
 service MotionSensorService {
-  // Server-side streaming RPC to receive motion detection updates
+  // Client-side streaming RPC to receive motion detection updates
   rpc detectMotion(stream DetectMotionStatusRequest) returns (DetectMotionResponse);
 }
 
