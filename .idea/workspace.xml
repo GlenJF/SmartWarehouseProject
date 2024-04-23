@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64bda5e2-e78a-4a3c-8406-a526b3b38a05" name="Changes" comment="new commits">
-      <change beforePath="$PROJECT_DIR$/src/main/java/MotionSensorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MotionSensorServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MotionSensorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MotionSensorClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +127,7 @@
       <workItem from="1713342506622" duration="7758000" />
       <workItem from="1713359213116" duration="18000" />
       <workItem from="1713359262224" duration="71837000" />
-      <workItem from="1713797029270" duration="22394000" />
+      <workItem from="1713797029270" duration="23267000" />
     </task>
     <task id="LOCAL-00001" summary="new commits">
       <option name="closed" value="true" />

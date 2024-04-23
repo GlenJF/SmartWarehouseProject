@@ -73,6 +73,7 @@ public class LightSensorClient {
                         .setLuminousIntensity(luminousIntensity)
                         .build();
                 requestObserver.onNext(request);
+                count++;
                 Thread.sleep(5000); // Send request every 5 seconds
             }
         } catch (InterruptedException e) {

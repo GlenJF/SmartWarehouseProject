@@ -61,7 +61,7 @@ import java.util.concurrent.TimeUnit;
             // Simulate motion detection
             try {
                 int count=0;
-                while (count<3) {
+                while (count<10) {
                     boolean isMotionDetected;
                     if (Math.random() < 0.5) isMotionDetected = true;
                     else isMotionDetected = false;
@@ -70,6 +70,7 @@ import java.util.concurrent.TimeUnit;
                             .setIsMotionDetected(isMotionDetected)
                             .build();
                     requestObserver.onNext(request);
+                    count++;
                     Thread.sleep(5000); // Send request every 5 seconds
                 }
             } catch (InterruptedException e) {
