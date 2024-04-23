@@ -20,6 +20,7 @@ import java.util.concurrent.TimeUnit;
             this.consulServiceName = consulServiceName;
             this.channel = initializeChannel();
             this.stub = initializeStub();
+            System.out.println("Client initialized.");
         }
 
         private ManagedChannel initializeChannel() {
@@ -41,6 +42,8 @@ import java.util.concurrent.TimeUnit;
             StreamObserver<DetectMotionStatusRequest> requestObserver = stub.detectMotion(new StreamObserver<DetectMotionResponse>() {
                 @Override
                 public void onNext(DetectMotionResponse response) {
+                   // System.out.println("Motion Detected: " + response.getMessage());
+                    System.out.println("Received response from server: " + response);
                     System.out.println("Motion Detected: " + response.getMessage());
                 }
 
@@ -57,10 +60,12 @@ import java.util.concurrent.TimeUnit;
 
             // Simulate motion detection
             try {
-                while (true) {
+                int count=0;
+                while (count<3) {
                     boolean isMotionDetected;
                     if (Math.random() < 0.5) isMotionDetected = true;
                     else isMotionDetected = false;
+                    System.out.println("Sending motion detection request with isMotionDetected: " + isMotionDetected);
                     DetectMotionStatusRequest request = DetectMotionStatusRequest.newBuilder()
                             .setIsMotionDetected(isMotionDetected)
                             .build();
@@ -80,6 +85,7 @@ import java.util.concurrent.TimeUnit;
             String consulServiceName = "motionsensor-service";
 
             MotionSensorClient client = new MotionSensorClient(consulHost, consulPort, consulServiceName);
+            System.out.println("Starting MotionSensorClient");
             try {
                 // Detect motion
                 client.detectMotion();
@@ -90,6 +96,7 @@ import java.util.concurrent.TimeUnit;
                 scanner.nextLine();
             } finally {
                 client.shutdown();
+                System.out.println("Client shutdown.");
             }
         }
 
