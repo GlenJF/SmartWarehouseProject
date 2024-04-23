@@ -102,13 +102,15 @@ public class MotionSensorServer {
 
         @Override
         public StreamObserver<DetectMotionStatusRequest> detectMotion(StreamObserver<DetectMotionResponse> responseObserver) {
+             System.out.println("Client connected for motion detection");
             return new StreamObserver<DetectMotionStatusRequest>() {
                 StringBuilder status = new StringBuilder();
 
                 @Override
                 public void onNext(DetectMotionStatusRequest request) {
-                    // Aggregate all the motion status received from the client
-                    status.append(request.getIsMotionDetected() ? "Motion detected, " : "No motion detected, ");
+
+                System.out.println("Received motion detection request from client: " + request.getIsMotionDetected());
+                 status.append(request.getIsMotionDetected() ? "Motion detected, " : "No motion detected, ");
                 }
 
                 @Override
