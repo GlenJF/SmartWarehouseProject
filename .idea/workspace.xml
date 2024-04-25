@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64bda5e2-e78a-4a3c-8406-a526b3b38a05" name="Changes" comment="new commits">
-      <change beforePath="$PROJECT_DIR$/src/main/java/MotionSensorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MotionSensorClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/SmartwarehouseManager.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +17,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -50,10 +53,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Launcher.executor": "Run",
     "Application.LightSensorClient.executor": "Run",
     "Application.LightSensorServer.executor": "Run",
     "Application.MotionSensorClient.executor": "Run",
     "Application.MotionSensorServer.executor": "Run",
+    "Application.SmartWarehouseApp.executor": "Run",
     "Application.ThermostatServer.executor": "Run",
     "Application.ThermostatServiceClient.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -67,9 +72,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -83,6 +89,9 @@
       <recent name="C:\code\SmartWarehouseProject\src" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
@@ -127,7 +136,10 @@
       <workItem from="1713342506622" duration="7758000" />
       <workItem from="1713359213116" duration="18000" />
       <workItem from="1713359262224" duration="71837000" />
-      <workItem from="1713797029270" duration="23267000" />
+      <workItem from="1713797029270" duration="26672000" />
+      <workItem from="1713900072700" duration="3323000" />
+      <workItem from="1713958974482" duration="553000" />
+      <workItem from="1713960554613" duration="30860000" />
     </task>
     <task id="LOCAL-00001" summary="new commits">
       <option name="closed" value="true" />
@@ -199,5 +211,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
