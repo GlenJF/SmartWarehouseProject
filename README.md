@@ -24,11 +24,12 @@ To run the Smart Warehouse project, follow these steps:
 
 ## How to Start the Clients
 ### Starting the Servers
-Before starting the clients, ensure that the servers are running. This can be done by selecting the "Run" option in IntelliJ IDEA, which is located at the top of the IDE.
+Before starting the clients, ensure that the servers are running. This can be done by selecting the "Run" option in IntelliJ IDEA, which is located at the top of the IDE or Right-click on the class file named server and select "Run "----server".main()".
+(Each of the services have their own server class)
 
 ### Starting the Clients Individually
 1. Open the SmartWarehouseManager class in IntelliJ IDEA.
-2. Right-click on the class file and select "Run SmartWarehouseManager.main()".
+2. Right-click on the 2SmartWarehouseManager" class file and select "Run SmartWarehouseManager.main()".
 3. This will launch the Smart Warehouse Manager application.
 4. Once the application window is open, follow the on-screen instructions to start individual clients by entering the corresponding option number.
 
@@ -39,4 +40,6 @@ Communication messages between the clients and servers will be displayed on the 
 It is preferred to start the clients individually rather than starting all at once to ensure smoother communication and better control over the warehouse management system.
 
 ## Credits
-This project was developed using class notes and code as references.
+
+
+
