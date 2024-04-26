@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="64bda5e2-e78a-4a3c-8406-a526b3b38a05" name="Changes" comment="new commits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LightSensorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LightSensorServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MotionSensorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MotionSensorServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/smartwarehouseGUI/Launcher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/smartwarehouseGUI/SmartwarehouseApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SmartwarehouseManager.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SmartHouseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SmartWarehouseManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +61,7 @@
     "Application.MotionSensorServer.executor": "Run",
     "Application.SmartHouseManager.executor": "Run",
     "Application.SmartWarehouseApp.executor": "Run",
+    "Application.SmartWarehouseManager.executor": "Run",
     "Application.SmartwarehouseApp.executor": "Run",
     "Application.SmartwarehouseCommandLineInterface.executor": "Run",
     "Application.ThermostatServer.executor": "Run",
@@ -93,6 +90,7 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\code\SmartWarehouseProject\src\main\resources\image" />
       <recent name="C:\code\SmartWarehouseProject\src\main\java" />
       <recent name="C:\code\SmartWarehouseProject\src\main\resources\com\ncirl" />
       <recent name="C:\code\SmartWarehouseProject\src\main" />
@@ -104,6 +102,50 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
+  </component>
+  <component name="RunManager" selected="Application.SmartWarehouseManager">
+    <configuration name="LightSensorServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LightSensorServer" />
+      <module name="SmartWarehouse" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MotionSensorServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MotionSensorServer" />
+      <module name="SmartWarehouse" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmartWarehouseManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SmartWarehouseManager" />
+      <module name="SmartWarehouse" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThermostatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ThermostatServer" />
+      <module name="SmartWarehouse" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.LightSensorServer" />
+      <item itemvalue="Application.MotionSensorServer" />
+      <item itemvalue="Application.SmartWarehouseManager" />
+      <item itemvalue="Application.ThermostatServer" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SmartWarehouseManager" />
+        <item itemvalue="Application.ThermostatServer" />
+        <item itemvalue="Application.LightSensorServer" />
+        <item itemvalue="Application.MotionSensorServer" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -128,7 +170,7 @@
       <workItem from="1713900072700" duration="3323000" />
       <workItem from="1713958974482" duration="553000" />
       <workItem from="1713960554613" duration="37324000" />
-      <workItem from="1714084047035" duration="16247000" />
+      <workItem from="1714084047035" duration="26096000" />
     </task>
     <task id="LOCAL-00001" summary="new commits">
       <option name="closed" value="true" />
