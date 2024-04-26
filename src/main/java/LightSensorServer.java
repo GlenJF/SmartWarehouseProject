@@ -18,7 +18,7 @@ public class LightSensorServer {
 
     private Server server;
 
-    private void start() throws IOException {
+    public void start() throws IOException {
         int port = 50053;
         server = ServerBuilder.forPort(port)
                 .addService(new LightSensorServiceImpl())
@@ -74,7 +74,7 @@ public class LightSensorServer {
         System.out.println("Server registered to Consul successfully. Host: " + hostAddress);
     }
 
-    private void stop() {
+    void stop() {
         if (server != null) {
             server.shutdown();
         }

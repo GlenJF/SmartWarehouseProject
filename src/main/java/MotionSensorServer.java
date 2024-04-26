@@ -15,7 +15,7 @@ public class MotionSensorServer {
 
     private Server server;
 
-    private void start() throws IOException {
+    public void start() throws IOException {
         /* The port on which the server should run */
         int port = 50052;
         server = ServerBuilder.forPort(port)
@@ -35,7 +35,7 @@ public class MotionSensorServer {
         }));
     }
 
-    private void stop() {
+    void stop() {
         if (server != null) {
             server.shutdown();
         }

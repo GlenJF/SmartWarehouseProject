@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="64bda5e2-e78a-4a3c-8406-a526b3b38a05" name="Changes" comment="new commits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/smartwarehouseGUI/SmartwarehouseApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/smartwarehouseGUI/SmartwarehouseApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SmartwarehouseManager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SmartwarehouseManager.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LightSensorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LightSensorServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MotionSensorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MotionSensorServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/smartwarehouseGUI/Launcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/smartwarehouseGUI/SmartwarehouseApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SmartwarehouseManager.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,10 +63,13 @@
     "Application.LightSensorServer.executor": "Run",
     "Application.MotionSensorClient.executor": "Run",
     "Application.MotionSensorServer.executor": "Run",
+    "Application.SmartHouseManager.executor": "Run",
     "Application.SmartWarehouseApp.executor": "Run",
     "Application.SmartwarehouseApp.executor": "Run",
+    "Application.SmartwarehouseCommandLineInterface.executor": "Run",
     "Application.ThermostatServer.executor": "Run",
     "Application.ThermostatServiceClient.executor": "Run",
+    "Application.com.ncirl.smartwarehouse.Launcher.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -88,6 +94,7 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\code\SmartWarehouseProject\src\main\java" />
+      <recent name="C:\code\SmartWarehouseProject\src\main\resources\com\ncirl" />
       <recent name="C:\code\SmartWarehouseProject\src\main" />
       <recent name="C:\code\SmartWarehouseProject\src" />
     </key>
@@ -97,39 +104,6 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
-  </component>
-  <component name="RunManager" selected="Application.Launcher">
-    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="smartwarehouseGUI.Launcher" />
-      <module name="SmartWarehouse" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="smartwarehouseGUI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SmartwarehouseApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="smartwarehouseGUI.SmartwarehouseApp" />
-      <module name="SmartWarehouse" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\openjfx-21.0.3_windows-x64_bin-sdk\javafx-sdk-21.0.3\lib&quot; --add-modules javafx.controls,javafx.fxml" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Launcher" />
-      <item itemvalue="Application.SmartwarehouseApp" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Launcher" />
-        <item itemvalue="Application.SmartwarehouseApp" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -154,7 +128,7 @@
       <workItem from="1713900072700" duration="3323000" />
       <workItem from="1713958974482" duration="553000" />
       <workItem from="1713960554613" duration="37324000" />
-      <workItem from="1714084047035" duration="5854000" />
+      <workItem from="1714084047035" duration="16247000" />
     </task>
     <task id="LOCAL-00001" summary="new commits">
       <option name="closed" value="true" />
