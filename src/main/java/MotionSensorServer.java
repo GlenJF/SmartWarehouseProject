@@ -15,9 +15,11 @@ public class MotionSensorServer {
 
     private Server server;
 
+    // Start the Server
     public void start() throws IOException {
         /* The port on which the server should run */
         int port = 50052;
+        // Create and start the server
         server = ServerBuilder.forPort(port)
                 .addService(new MotionSensorServiceImpl())
                 .build()
@@ -27,7 +29,7 @@ public class MotionSensorServer {
         // Register server to Consul
         registerToConsul();
 
-        // Add shutdown hook
+        // Add shutdown hook to gracefully shu down the server
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.err.println("*** shutting down gRPC server since JVM is shutting down");
             MotionSensorServer.this.stop();
@@ -35,22 +37,24 @@ public class MotionSensorServer {
         }));
     }
 
+   //Method to stop the server
     void stop() {
         if (server != null) {
             server.shutdown();
         }
     }
-
+// Block until the server shuts down
     private void blockUntilShutdown() throws InterruptedException {
         if (server != null) {
             server.awaitTermination();
         }
     }
 
+    // Register server on Consul for service discovery
     private void registerToConsul() {
         System.out.println("Registering server to Consul...");
 
-        // Load Consul configuration from consul.properties file
+        // Load Consul configuration from .properties file
         Properties props = new Properties();
         try (FileInputStream fis = new FileInputStream("src/main/resources/motionsensor.properties")) {
             props.load(fis);
@@ -91,22 +95,24 @@ public class MotionSensorServer {
         // Print registration success message
         System.out.println("Server registered to Consul successfully. Host: " + hostAddress);
     }
-
+    // Main method to start the server
     public static void main(String[] args) throws IOException, InterruptedException {
         final MotionSensorServer server = new MotionSensorServer();
         server.start();
         server.blockUntilShutdown();
     }
-
+    // Implementation of gRPC service
     private static class MotionSensorServiceImpl extends MotionSensorServiceGrpc.MotionSensorServiceImplBase{
 
         @Override
         public StreamObserver<DetectMotionStatusRequest> detectMotion(StreamObserver<DetectMotionResponse> responseObserver) {
              System.out.println("Client connected for motion detection");
+         // Return a stream observer to handel  motion detection requests from the client
             return new StreamObserver<DetectMotionStatusRequest>() {
                 StringBuilder status = new StringBuilder();
 
                 @Override
+                // Handel motion detection requests from clients
                 public void onNext(DetectMotionStatusRequest request) {
 
                 System.out.println("Received motion detection request from client: " + request.getIsMotionDetected());
@@ -114,6 +120,7 @@ public class MotionSensorServer {
                 }
 
                 @Override
+                // handel errors
                 public void onError(Throwable t) {
                     System.err.println("Error in receiving motion detection status: " + t.getMessage());
                 }

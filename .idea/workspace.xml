@@ -6,7 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="64bda5e2-e78a-4a3c-8406-a526b3b38a05" name="Changes" comment="new commits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SmartHouseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SmartWarehouseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LightSensorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LightSensorClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LightSensorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LightSensorServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MotionSensorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MotionSensorClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MotionSensorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MotionSensorServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SmartWarehouseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SmartWarehouseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ThermostatReading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ThermostatReading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ThermostatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ThermostatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ThermostatServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ThermostatServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/LightSensorService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/LightSensorService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/ThermostatService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/ThermostatService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/consul.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/thermostat.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +54,9 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -52,39 +66,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Launcher.executor": "Run",
-    "Application.LightSensorClient.executor": "Run",
-    "Application.LightSensorServer.executor": "Run",
-    "Application.MotionSensorClient.executor": "Run",
-    "Application.MotionSensorServer.executor": "Run",
-    "Application.SmartHouseManager.executor": "Run",
-    "Application.SmartWarehouseApp.executor": "Run",
-    "Application.SmartWarehouseManager.executor": "Run",
-    "Application.SmartwarehouseApp.executor": "Run",
-    "Application.SmartwarehouseCommandLineInterface.executor": "Run",
-    "Application.ThermostatServer.executor": "Run",
-    "Application.ThermostatServiceClient.executor": "Run",
-    "Application.com.ncirl.smartwarehouse.Launcher.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/openjfx-21.0.3_windows-x64_bin-sdk",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LightSensorClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LightSensorServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MotionSensorClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MotionSensorServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SmartHouseManager.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SmartWarehouseApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SmartWarehouseManager.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SmartwarehouseApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SmartwarehouseCommandLineInterface.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThermostatServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThermostatServiceClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.ncirl.smartwarehouse.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/openjfx-21.0.3_windows-x64_bin-sdk&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
@@ -103,7 +117,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SmartWarehouseManager">
+  <component name="RunManager">
     <configuration name="LightSensorServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LightSensorServer" />
       <module name="SmartWarehouse" />
@@ -140,9 +154,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LightSensorServer" />
         <item itemvalue="Application.SmartWarehouseManager" />
         <item itemvalue="Application.ThermostatServer" />
-        <item itemvalue="Application.LightSensorServer" />
         <item itemvalue="Application.MotionSensorServer" />
       </list>
     </recent_temporary>
@@ -171,6 +185,7 @@
       <workItem from="1713958974482" duration="553000" />
       <workItem from="1713960554613" duration="37324000" />
       <workItem from="1714084047035" duration="26096000" />
+      <workItem from="1714299042884" duration="10048000" />
     </task>
     <task id="LOCAL-00001" summary="new commits">
       <option name="closed" value="true" />

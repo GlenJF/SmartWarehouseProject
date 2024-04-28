@@ -14,10 +14,12 @@ service ThermostatService {
   rpc streamThermostatReadings(RequestSource) returns (stream ThermostatReadingInformation);
 }
 
+//  Request message sent to the thermostat service
 message RequestSource {
   string request = 1;
 }
 
+// Response message to receive temp readings
 message ThermostatReadingInformation {
   double temperature = 1;
 }

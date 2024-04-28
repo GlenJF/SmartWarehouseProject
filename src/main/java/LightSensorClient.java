@@ -11,11 +11,13 @@ import java.util.concurrent.TimeUnit;
 
 public class LightSensorClient {
 
+
     private final ManagedChannel channel;
     private final ConsulClient consulClient;
     private final String consulServiceName;
     private final LightSensorServiceGrpc.LightSensorServiceStub stub;
 
+    // Initialize client with Consul details and gRPC Stub
     public LightSensorClient(String consulHost, int consulPort, String consulServiceName) {
         this.consulClient = new ConsulClient(consulHost, consulPort);
         this.consulServiceName = consulServiceName;
@@ -23,21 +25,25 @@ public class LightSensorClient {
         this.stub = initializeStub();
     }
 
+    // Initialize gRPC channel to connect to the service registered in Consul
     private ManagedChannel initializeChannel() {
         List<HealthService> healthServices = consulClient.getHealthServices(consulServiceName, true, null).getValue();
         if (healthServices.isEmpty()) {
             throw new RuntimeException("No healthy instances of " + consulServiceName + " found in Consul.");
         }
+        // Select the first healthy instance
         HealthService healthService = healthServices.get(0);
         String serverHost = healthService.getService().getAddress();
         int serverPort = healthService.getService().getPort();
         return ManagedChannelBuilder.forAddress(serverHost, serverPort).usePlaintext().build();
     }
 
+    // Method to initialize the gRPC stub
     private LightSensorServiceGrpc.LightSensorServiceStub initializeStub() {
         return LightSensorServiceGrpc.newStub(channel);
     }
 
+    // Method to adjust the brightness based on received responses
     public void adjustBrightness() {
         StreamObserver<LightResponse> responseObserver = new StreamObserver<LightResponse>() {
             @Override
@@ -102,6 +108,7 @@ public class LightSensorClient {
         }
     }
 
+    // Shutdown client gracefully 
     public void shutdown() {
         try {
             channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);

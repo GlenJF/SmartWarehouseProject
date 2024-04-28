@@ -2,14 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SmartWarehouseManager {
+    // Create instance variables  of all three clients
     private LightSensorClient lightSensorClient;
     private MotionSensorClient motionSensorClient;
     private ThermostatServiceClient thermostatServiceClient;
 
-    private JFrame frame;
-    private JPanel panel;
-    private JTextField inputField;
+    private JFrame frame;//  JFrame for the main window
+    private JPanel panel;//JPanel to hold GUI components
+    private JTextField inputField;// JTextField for user input
 
+    // Initialize clients with Consul details and service names
     public SmartWarehouseManager() {
         String consulHost = "localhost"; // Consul host
         int consulPort = 8500; // Consul port
@@ -17,19 +19,20 @@ public class SmartWarehouseManager {
         motionSensorClient = new MotionSensorClient(consulHost, consulPort, "motionsensor-service");
         thermostatServiceClient = new ThermostatServiceClient(consulHost, consulPort, "thermostat-service");
     }
-
+    // Method to start all clients
     public void startClients() {
         lightSensorClient.adjustBrightness();
         motionSensorClient.detectMotion();
         thermostatServiceClient.streamThermostatReadings();
     }
-
+    // Method to stop all clients
     public void stopClients() {
         lightSensorClient.shutdown();
         motionSensorClient.shutdown();
         thermostatServiceClient.shutdown();
     }
 
+    // Methods to start and stop individual clients
     public void startLightSensorClient() {
         lightSensorClient.adjustBrightness();
     }
@@ -54,6 +57,7 @@ public class SmartWarehouseManager {
         thermostatServiceClient.shutdown();
     }
 
+    //Create and show the GUI
     public void createAndShowGUI() {
         frame = new JFrame("Smart Warehouse Manager");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,6 +72,7 @@ public class SmartWarehouseManager {
         logoPanel.add(logoLabel, BorderLayout.CENTER);
         panel.add(logoPanel, BorderLayout.BEFORE_FIRST_LINE);
 
+        // Create options panel
         JPanel optionsPanel = new JPanel();
         optionsPanel.setLayout(new BoxLayout(optionsPanel, BoxLayout.Y_AXIS));
         optionsPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Add padding
@@ -118,6 +123,13 @@ public class SmartWarehouseManager {
         return label;
     }
 
+    /*
+     * Process the user input from the input field.
+     * Retrieve  the input from the text field, convert to integer,
+     *  execute action based on the input option.
+     * If the input is invalid,  display an error message.
+     */
+
     private void processInput() {
         int option;
         try {
@@ -128,6 +140,7 @@ public class SmartWarehouseManager {
             return;
         }
 
+            // Take the corresponding action based on the input option
         switch (option) {
             case 1:
                 startClients();
@@ -165,6 +178,7 @@ public class SmartWarehouseManager {
         inputField.setText("");
     }
 
+    // Main method to launch the manager
     public static void main(String[] args) {
         SmartWarehouseManager manager = new SmartWarehouseManager();
         manager.createAndShowGUI();

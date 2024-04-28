@@ -7,11 +7,13 @@ option java_package = "com.ncirl.smartwarehouse";
 option java_outer_classname = "LightSensorServiceProto";
 
 service LightSensorService {
+  // Streaming RPC to adjust the brightness of a light based on a stream of light requests (bidirectional stream)
   rpc AdjustBrightness(stream LightRequest) returns (stream LightResponse) {}
 }
+// Request message sent to adjust light brightness
 message LightRequest {
   int32 luminousIntensity = 1;}
-
+// Response message indicating how to adjust brightness
 message LightResponse {
   bool increaseBrightness = 1;
   bool decreaseBrightness = 2;

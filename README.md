@@ -13,6 +13,11 @@ Each service has the following objectives:
 - **Motion Sensor Service**: To detect motion within the warehouse and provide real-time alerts to enhance security.
 - **Thermostat Service**: To monitor and control the temperature in the warehouse, providing both streaming data and current temperature upon request.
 
+## Important Note:
+Please ensure the consul is up and running on you machine
+To Get Hashicorp Consul running on your machine, you can use the following docker command:
+docker run --name consul -p 8500:8500 hashicorp/consul agent -dev -ui -client=0.0.0.0 -bind=0.0.0.0
+
 ## Installation
 To run the Smart Warehouse project, follow these steps:
 1. Unzip the project folder named "Code".
@@ -38,8 +43,7 @@ Communication messages between the clients and servers will be displayed on the 
 
 ## Note
 It is preferred to start the clients individually rather than starting all at once to ensure smoother communication and better control over the warehouse management system.
-
-## Credits
+Alternatively servers and clients can be started by using the run feature available in Intelli-J IDEA, which can be found on top menu bar.
 
 
 

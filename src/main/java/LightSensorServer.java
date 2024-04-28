@@ -16,8 +16,16 @@ import java.util.Properties;
 
 public class LightSensorServer {
 
+
     private Server server;
 
+    // Main Method to start Server
+    public static void main(String[] args) throws IOException, InterruptedException {
+        final LightSensorServer server = new LightSensorServer();
+        server.start();
+        server.blockUntilShutdown();
+    }
+    //Start Server
     public void start() throws IOException {
         int port = 50053;
         server = ServerBuilder.forPort(port)
@@ -25,9 +33,11 @@ public class LightSensorServer {
                 .build()
                 .start();
         System.out.println("Server started, listening on " + port);
-    //Register Server on consul
+
+        //Register Server on consul
         registerToConsul();
 
+        // add shutdown hook
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             server.shutdown();
             System.err.println("*** shutting down gRPC server since JVM is shutting down");
@@ -36,9 +46,11 @@ public class LightSensorServer {
         }));
     }
 
+    // Register server to Consul for service discovery
     private void registerToConsul() {
         System.out.println("Registering server to Consul...");
-       //Load Consul configuration from consul.properties file
+
+        //Load Consul configuration
         Properties props = new Properties();
         try (FileInputStream fis = new FileInputStream("src/main/resources/lightsensor.properties")) {
             props.load(fis);
@@ -46,7 +58,7 @@ public class LightSensorServer {
             e.printStackTrace();
             return;
         }
-
+        // Extract Consul configuration properties
         String consulHost = props.getProperty("consul.host");
         int consulPort = Integer.parseInt(props.getProperty("consul.port"));
 
@@ -68,60 +80,63 @@ public class LightSensorServer {
         newService.setName(serviceName);
         newService.setPort(servicePort);
         newService.setAddress(hostAddress);
+
         // Register with Consul
         consulClient.agentServiceRegister(newService);
+
         //Print Success Message
         System.out.println("Server registered to Consul successfully. Host: " + hostAddress);
     }
 
+    // Stop Server
     void stop() {
         if (server != null) {
             server.shutdown();
         }
     }
 
+    //Block until server shuts down
     private void blockUntilShutdown() throws InterruptedException {
         if (server != null) {
             server.awaitTermination();
         }
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        final LightSensorServer server = new LightSensorServer();
-        server.start();
-        server.blockUntilShutdown();
-    }
-
+    // Implementation of gRPC service
     static class LightSensorServiceImpl extends LightSensorServiceGrpc.LightSensorServiceImplBase {
         @Override
         public StreamObserver<LightRequest> adjustBrightness(final StreamObserver<LightResponse> responseObserver) {
             return new StreamObserver<LightRequest>() {
                 @Override
                 public void onNext(LightRequest request) {
+                    // Get the luminous intesity from the request
                     int luminousIntensity = request.getLuminousIntensity();
-
+                    // Initialize variables to indicate brightness adjustment
                     boolean increaseBrightness = false;
                     boolean decreaseBrightness = false;
-
-                    if (luminousIntensity > 50) {
+                    // Check luminous intensity and set brightness
+                    if (luminousIntensity > 30) {
                         increaseBrightness = true;
-                    } else if (luminousIntensity < 20) {
+                    } else if (luminousIntensity < 50) {
                         decreaseBrightness = true;
                     }
-
+                    // Create Response
                     LightResponse response = LightResponse.newBuilder()
                             .setIncreaseBrightness(increaseBrightness)
                             .setDecreaseBrightness(decreaseBrightness)
                             .build();
+                    // Send the response to the client
                     responseObserver.onNext(response);
                 }
 
                 @Override
+                // Handel Errors
                 public void onError(Throwable t) {
                     System.err.println("Error from client: " + t.getMessage());
                 }
 
                 @Override
+                // Complete the response Stream
                 public void onCompleted() {
                     responseObserver.onCompleted();
                 }
